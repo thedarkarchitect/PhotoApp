@@ -21,7 +21,7 @@ interface MarsApiService{//defines how retrofit talks to the web server using HT
     suspend fun getPhotos(): List<MarsPhoto> //makes the function asynchronous and not block the calling thread
 }
 
-object MarsApi{
+object MarsApi{//this initializes the retrofit service
     val retrofitService : MarsApiService by lazy{
 //        The caller accesses the same singleton retrofit object that implements MarsApiService thru this object
         retrofit.create(MarsApiService::class.java)
