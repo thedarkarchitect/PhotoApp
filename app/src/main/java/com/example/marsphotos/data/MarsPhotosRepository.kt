@@ -1,8 +1,8 @@
 package com.example.marsphotos.data
 
 
+import com.example.marsphotos.model.MarsPhoto
 import com.example.marsphotos.network.MarsApiService
-import com.example.marsphotos.network.MarsPhoto
 
 interface MarsPhotosRepository {
     suspend fun getMarsPhotos(): List<MarsPhoto>
@@ -11,7 +11,5 @@ interface MarsPhotosRepository {
 class NetworkMarsPhotosRepository(
     private val marsApiService: MarsApiService
 ) : MarsPhotosRepository {
-    override suspend fun getMarsPhotos(): List<MarsPhoto> {
-        return marsApiService.getPhotos()
-    }
+    override suspend fun getMarsPhotos(): List<MarsPhoto> = marsApiService.getPhotos()//this receives all photos from the server and return in the type of MarsPhoto
 }
